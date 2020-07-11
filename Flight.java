@@ -13,6 +13,7 @@ class Flight{
 	public Flight(String _id, String _from, String _to, double _price){
 		this.id = _id;
 		this.from = _from;
+		this.to = _to;
 		this.price = _price;
 		this.numKids = 0;
 		this.numAdults = 0;
@@ -37,21 +38,21 @@ class Flight{
 	}
 
 	public void displayInfoFlight(){
-		System.out.println(String.format("%-15s= %s" , "Flight Id", " : " + this.id));
-		System.out.println(String.format("%-15s= %s" , "From", " : " + this.from));
-		System.out.println(String.format("%-15s= %s" , "To", " : " + this.to));
+		System.out.println(String.format("%-10s %s" , "Flight Id", " : " + this.id));
+		System.out.println(String.format("%-10s %s" , "From", " : " + this.from));
+		System.out.println(String.format("%-10s %s" , "To", " : " + this.to));
 	}
 
 	public void displayInfoPassengers(){
 
-		System.out.println(String.format("%-15s= %s" , "Price", " : " + this.price));
+		System.out.println(String.format("%-15s %s" , "Price", " : " + this.price));
 
-		System.out.println(String.format("%-25s= %s" , "Number of Passengers", " : " + Integer.toString(this.numKids + this.numAdults)));
-		System.out.println(String.format("%-25s= %s" , "Number of Adults", " : " + Integer.toString(this.numAdults)));
-		System.out.println(String.format("%-25s= %s" , "Number of Kids", " : " + Integer.toString(this.numKids)));
+		System.out.println(String.format("%-25s %s" , "Number of Passengers", " : " + Integer.toString(this.numKids + this.numAdults)));
+		System.out.println(String.format("%-25s %s" , "Number of Adults", " : " + Integer.toString(this.numAdults)));
+		System.out.println(String.format("%-25s %s" , "Number of Kids", " : " + Integer.toString(this.numKids)));
 
 		for (int i=0;i<this.passengerList.size();i++){
-			this.passengerList.displayDetails();
+			this.passengerList.get(i).displayDetails();
 		}
 
 		//// total price

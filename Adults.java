@@ -6,6 +6,8 @@ class Adults extends Passenger{
 	public double calcDisc(){
 		if(super.age >= 60){
 			return DiscConsiderable.DISC_SENIOR;
+		}else{
+			return 0;
 		}
 	}
 

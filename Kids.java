@@ -10,6 +10,8 @@ class Kids extends Passenger{
 	public double calcDisc(){
 		if(super.age <= 2){
 			return DiscConsiderable.DISC_KIDS;
+		}else{
+			return 0;
 		}
 	}
 
