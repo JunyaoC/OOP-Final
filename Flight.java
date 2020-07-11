@@ -45,7 +45,7 @@ class Flight{
 
 	public void displayInfoPassengers(){
 		
-		System.out.println(String.format("%-10s %s" , "Price", " : RM" + this.price + "\n"));
+		System.out.println(String.format("%-10s %s%.2f%s" , "Price", " : RM",this.price,"\n"));
 
 		if(passengerList.size() > 1){
 
@@ -62,10 +62,10 @@ class Flight{
 				System.out.print(String.format("%-4s",Integer.toString(i+1) + ". "));
 				this.passengerList.get(i).displayDetails();
 				totalTicketPrice = totalTicketPrice + this.price - (this.price * (this.passengerList.get(i).calcDisc() / 100));
-				System.out.println(String.format("%-15s",Double.toString(this.price - (this.price * (this.passengerList.get(i).calcDisc() / 100)))));
+				System.out.println(String.format("%-15.2f",this.price - (this.price * (this.passengerList.get(i).calcDisc() / 100))));
 			}
 
-			System.out.println("\nTotal Ticket Price: " + Double.toString(totalTicketPrice) + "\n");
+			System.out.println(String.format("%s%.2f%s","\nTotal Ticket Price: ",totalTicketPrice,"\n"));
 		}else{
 			System.out.println("\nNo passenger!\n");
 		}

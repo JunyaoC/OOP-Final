@@ -52,44 +52,52 @@ public class FlightTest{
 
 				case "2":
 
-					System.out.println("<<< Add Passenger(s) >>>\n");
+					if(flightList.size() >= 1){
 
-					System.out.println("Flight list");
+						System.out.println("<<< Add Passenger(s) >>>\n");
 
-					for(int i=0;i<flightList.size();i++){
-						System.out.println(Integer.toString(i+1) + ") " + flightList.get(i).getFlightId());
-					}
+						System.out.println("Flight list");
 
-					System.out.print("\nSelect flight : ");
-					int selectedFlight = Integer.valueOf(userInput.nextLine());
-
-					boolean exitPassengerLoop = false;
-
-					while(!exitPassengerLoop){
-						System.out.println("\n--- Enter Passenger Info ---\n");
-						System.out.print("Enter Name: ");
-						String _name = userInput.nextLine();
-						System.out.print("Enter Age: ");
-						int _age = Integer.valueOf(userInput.nextLine());
-
-						Passenger _newPassenger;
-
-						if(_age <= 12){
-							System.out.print("Enter Parent Name: ");
-							String _parentName = userInput.nextLine();
-							_newPassenger = new Kids(_name,_age,_parentName);
-						}else{
-							_newPassenger = new Adults(_name,_age);
+						for(int i=0;i<flightList.size();i++){
+							System.out.println(Integer.toString(i+1) + ") " + flightList.get(i).getFlightId());
 						}
 
-						flightList.get(selectedFlight-1).addPassenger(_newPassenger);
+						System.out.print("\nSelect flight : ");
+						int selectedFlight = Integer.valueOf(userInput.nextLine());
 
-						System.out.print("\nPress 'Y' to continue >> ");
+						boolean exitPassengerLoop = false;
 
-						if(!userInput.nextLine().equals("Y")){
-							exitPassengerLoop = true;	
+						while(!exitPassengerLoop){
+							System.out.println("\n--- Enter Passenger Info ---\n");
+							System.out.print("Enter Name: ");
+							String _name = userInput.nextLine();
+							System.out.print("Enter Age: ");
+							int _age = Integer.valueOf(userInput.nextLine());
+
+							Passenger _newPassenger;
+
+							if(_age <= 12){
+								System.out.print("Enter Parent Name: ");
+								String _parentName = userInput.nextLine();
+								_newPassenger = new Kids(_name,_age,_parentName);
+							}else{
+								_newPassenger = new Adults(_name,_age);
+							}
+
+							flightList.get(selectedFlight-1).addPassenger(_newPassenger);
+
+							System.out.print("\nPress 'Y' to continue >> ");
+
+							String continueOpt = userInput.nextLine();
+
+							if(!continueOpt.equals("Y") && !continueOpt.equals("y")){
+								exitPassengerLoop = true;	
+							}
 						}
+					}else{
+						System.out.println("Sorry!! No flight, please add flight first...");
 					}
+
 
 
 					break;
@@ -101,11 +109,11 @@ public class FlightTest{
 					}else{
 						System.out.println("\n<<< Flight Info >>>\n");
 
-						System.out.println("Number of Flights: " + Integer.valueOf(flightList.size()) + "\n");
+						System.out.println("Number of Flights: " + Integer.valueOf(flightList.size()));
 
 						for(int i=0;i<flightList.size();i++){
 
-							System.out.println("Flight #" + Integer.valueOf(i+1));
+							System.out.println("\nFlight #" + Integer.valueOf(i+1));
 
 							flightList.get(i).displayInfoFlight();
 
