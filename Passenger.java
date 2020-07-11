@@ -1,4 +1,4 @@
-abstract class Passenger{
+abstract class Passenger implements DiscConsiderable{
 	
 	protected String name;
 	protected int age;

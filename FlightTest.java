@@ -24,7 +24,7 @@ public class FlightTest{
 			System.out.println("[5] Exit");
 			System.out.println("==========================");
 
-			System.out.print("Select task: ");
+			System.out.print("\nSelect task: ");
 
 			Scanner userInput = new Scanner(System.in);
 
@@ -35,13 +35,13 @@ public class FlightTest{
 				case "1":
 
 					System.out.println("<<< Add Flight >>>\n");			
-					System.out.print(String.format("%-17s %s" , "Enter Flight Id", " : "));
+					System.out.print(String.format("%-18s %s" , "Enter Flight Id", " : "));
 					String _id = userInput.nextLine();
-					System.out.print(String.format("%-17s %s" , "Enter Flight From", " : "));
+					System.out.print(String.format("%-18s %s" , "Enter Flight From", " : "));
 					String _from = userInput.nextLine();
-					System.out.print(String.format("%-17s %s" , "Enter Flight To", " : "));
+					System.out.print(String.format("%-18s %s" , "Enter Flight To", " : "));
 					String _to = userInput.nextLine();
-					System.out.print(String.format("%-17s %s" , "Enter Price Ticket", " : RM"));
+					System.out.print(String.format("%-18s %s" , "Enter Price Ticket", " : RM"));
 					double _price = Double.valueOf(userInput.nextLine());
 
 					Flight newFlight = new Flight(_id,_from,_to,_price);
@@ -120,7 +120,7 @@ public class FlightTest{
 					if(flightList.size() < 1){
 						System.out.println("Sorry!! No flight, please add flight first...");
 					}else{
-						System.out.println("<<< Flight(s) and Passenger(s) Info >>>");
+						System.out.println("\n<<< Flight(s) and Passenger(s) Info >>>\n");
 
 						System.out.println("Number of Flights: " + Integer.valueOf(flightList.size()) + "\n");
 
@@ -142,6 +142,7 @@ public class FlightTest{
 
 				case "5":
 					exitProgram = true;
+					System.out.println("Thank You! :)");
 					break;
 
 			}

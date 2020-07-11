@@ -16,6 +16,6 @@ class Kids extends Passenger{
 	}
 
 	public void displayDetails(){
-		System.out.println(super.name + " " + Integer.toString(super.age) + " " + this.parentName);
+		System.out.print(String.format("%-25s%-5s%-20s", super.name,Integer.toString(super.age),this.parentName));
 	}
 }

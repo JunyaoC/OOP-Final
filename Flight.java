@@ -44,16 +44,32 @@ class Flight{
 	}
 
 	public void displayInfoPassengers(){
+		
+		System.out.println(String.format("%-10s %s" , "Price", " : RM" + this.price + "\n"));
 
-		System.out.println(String.format("%-15s %s" , "Price", " : " + this.price));
+		if(passengerList.size() > 1){
 
-		System.out.println(String.format("%-25s %s" , "Number of Passengers", " : " + Integer.toString(this.numKids + this.numAdults)));
-		System.out.println(String.format("%-25s %s" , "Number of Adults", " : " + Integer.toString(this.numAdults)));
-		System.out.println(String.format("%-25s %s" , "Number of Kids", " : " + Integer.toString(this.numKids)));
 
-		for (int i=0;i<this.passengerList.size();i++){
-			this.passengerList.get(i).displayDetails();
+			System.out.println(String.format("%-25s %s" , "Number of Passengers", " : " + Integer.toString(this.numKids + this.numAdults)));
+			System.out.println(String.format("%-25s %s" , "Number of Adults", " : " + Integer.toString(this.numAdults)));
+			System.out.println(String.format("%-25s %s" , "Number of Kids", " : " + Integer.toString(this.numKids) + "\n"));
+
+			System.out.println(String.format("%-4s%-25s%-5s%-20s%-15s","No","Name","Age","Parent Name","Ticket (RM)"));
+
+			double totalTicketPrice = 0;
+
+			for (int i=0;i<this.passengerList.size();i++){
+				System.out.print(String.format("%-4s",Integer.toString(i+1) + ". "));
+				this.passengerList.get(i).displayDetails();
+				totalTicketPrice = totalTicketPrice + this.price - (this.price * (this.passengerList.get(i).calcDisc() / 100));
+				System.out.println(String.format("%-15s",Double.toString(this.price - (this.price * (this.passengerList.get(i).calcDisc() / 100)))));
+			}
+
+			System.out.println("\nTotal Ticket Price: " + Double.toString(totalTicketPrice) + "\n");
+		}else{
+			System.out.println("\nNo passenger!\n");
 		}
+
 
 		//// total price
 
